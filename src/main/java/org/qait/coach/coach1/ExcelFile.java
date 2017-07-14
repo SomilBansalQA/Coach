@@ -1,5 +1,6 @@
 package org.qait.coach.coach1;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -12,7 +13,7 @@ public class ExcelFile {
 	static String fileName;
 
 	public ExcelFile() {
-		fileName = "C:\\Users\\somilbansal\\Desktop\\US.xls";
+		fileName = "C:"+File.separator+"Users"+File.separator+"somilbansal"+File.separator+"Desktop"+File.separator+"US.xls";
 	}
 
 	public Sheet readExcelFile(String path) {
