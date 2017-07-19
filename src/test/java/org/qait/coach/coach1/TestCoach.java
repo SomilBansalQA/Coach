@@ -64,9 +64,8 @@ class TestCoach {
 	}
 	
 	}
-
 	
-	  	   @Test(priority=1)
+	   @Test(priority=1)
 	   public void TestCoachCheckOut() throws InterruptedException{
 		   
 		   int	cursor=1;
@@ -107,4 +106,5 @@ class TestCoach {
 			   }
 	
 	   }
-	}
+	
+}
