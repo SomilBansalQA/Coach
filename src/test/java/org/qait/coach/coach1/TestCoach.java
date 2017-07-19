@@ -17,6 +17,7 @@ class TestCoach {
 	String GiftcardTitle="SEND STYLE";
 	String giftCardDescription="The luxury of choice is a wonderful gift.";
 	String giftCard="GIFT CARDS";
+	String thankYou="Thank you for your order.";
 	@BeforeTest
 	public void setup() {
 	    driverobj = new Driver();
@@ -73,11 +74,11 @@ class TestCoach {
 	   public void TestCoachCheckOut() throws InterruptedException{
 		   
 		   int	cursor=1;
-		  
+		 
 		   while(cursor<efObj.getNoOfRowsOfCreditCardFile()-2){
-
+   
 		   coachCheckOutObject.clickOnSale();
-		
+
 		   coachCheckOutObject.clickOnSelectedBag();
 		   coachCheckOutObject.clickonSelectSizeButton();
 		   coachCheckOutObject.setSize();
@@ -102,6 +103,7 @@ class TestCoach {
 		   coachCheckOutObject.setSecurityCode(efObj.getCreditCardSecurityNumber(cursor));
 		   coachCheckOutObject.clickOnContinue();
 		   coachCheckOutObject.clickOnPlaceOrder();
+		   assertEquals("check your order is placed",thankYou, coachCheckOutObject.getThankYouText());
 		   cursor++;
 			   }
 	
