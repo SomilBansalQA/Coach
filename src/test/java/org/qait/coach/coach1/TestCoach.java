@@ -65,6 +65,48 @@ class TestCoach {
 	
 	}
 
+	   @Test(priority=1)
+	   public void TestCoachCheckOut() throws InterruptedException{
+		   
+		   int	cursor=1;
+		   int flag=1;
+		   while(cursor<efObj.getNoOfRowsOfCreditCardFile()-2){
+
+		   
+		   
+		   coachCheckOutObject.clickOnSale();
+		   if(flag==1){
+		   coachCheckOutObject.closePopWindow();
+		   flag=0;
+		   }
+		   coachCheckOutObject.clickOnSelectedBag();
+		   coachCheckOutObject.clickonSelectSizeButton();
+		   coachCheckOutObject.setSize();
+		   coachCheckOutObject.clickOnAddToBag();
+		   coachCheckOutObject.clickOnBagButton();
+		   coachCheckOutObject.clickOnCheckOut();
+		   coachCheckOutObject.setFirstName();
+		   coachCheckOutObject.setLastName();
+		   coachCheckOutObject.setAdress();
+		   coachCheckOutObject.setZipCode();
 	
+		   coachCheckOutObject.setPhoneNumber();
+		   coachCheckOutObject.clickOnContinue();
+		   
+		   coachCheckOutObject.setCardNumber(efObj.getCreditCardNumber(cursor));
+		   coachCheckOutObject.setMonth();
+		   coachCheckOutObject.setYear();
+		   coachCheckOutObject.setSecurityCode(efObj.getCreditCardSecurityNumber(cursor));
+		   coachCheckOutObject.setEmailAdress();
+		   coachCheckOutObject.setConfirmEmailAdress();
+		   coachCheckOutObject.clickOnContinue();
+		   coachCheckOutObject.setSecurityCode(efObj.getCreditCardSecurityNumber(cursor));
+		   coachCheckOutObject.clickOnContinue();
+		   coachCheckOutObject.clickOnPlaceOrder();
+		   cursor++;
+			   }
+	
+	   }
+
 	
 }
