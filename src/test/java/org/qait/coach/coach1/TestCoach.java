@@ -66,5 +66,31 @@ class TestCoach {
 	}
 
 	
+	   @Test(priority=1)
+	   public void TestCoachCheckOut() throws InterruptedException{
+		   
+		   coachCheckOutObject.clickOnSale();
+		   coachCheckOutObject.closePopWindow();
+		   coachCheckOutObject.clickOnSelectedBag();
+		   coachCheckOutObject.clickonSelectSizeButton();
+		   coachCheckOutObject.setSize();
+		   coachCheckOutObject.clickOnAddToBag();
+		   coachCheckOutObject.clickOnBagButton();
+		   coachCheckOutObject.clickOnCheckOut();
+		   coachCheckOutObject.setFirstName();
+		   coachCheckOutObject.setLastName();
+		   coachCheckOutObject.setAdress();
+		   coachCheckOutObject.setZipCode();
+		
+		   coachCheckOutObject.setPhoneNumber();
+		   coachCheckOutObject.clickOnContinue();
+		   coachCheckOutObject.setCardNumber();
+		   coachCheckOutObject.setMonth();
+		   coachCheckOutObject.setYear();
+		   coachCheckOutObject.setSecurityCode();
+		   coachCheckOutObject.setEmailAdress();
+		   coachCheckOutObject.setConfirmEmailAdress();
+		   coachCheckOutObject.clickOnContinue();
+	   }
 	
 }
