@@ -8,9 +8,10 @@ import org.testng.annotations.Test;
 
 class TestCoach {
      
-	Coach_Gift_Card coachGCObj;
+	CoachGiftCard coachGCObj;
 	ExcelFile efObj;
     Driver driverobj;
+    CoachCheckOut coachCheckOutObject;
 	int sleepTime=5000;
 	WebDriver driver;
 	String GiftcardTitle="SEND STYLE";
@@ -20,8 +21,9 @@ class TestCoach {
 	public void setup() {
 	    driverobj = new Driver();
 		driver= driverobj.driverLaunch();		
-		coachGCObj = new Coach_Gift_Card(driver);
+		coachGCObj = new CoachGiftCard(driver);
 		efObj = new ExcelFile();
+		coachCheckOutObject= new CoachCheckOut(driver);
 	}
 
 	
@@ -35,9 +37,9 @@ class TestCoach {
 	    
 		coachGCObj.scrollIntoView();
 		
-	assertEquals("check GiftcardTitle",GiftcardTitle, coachGCObj.getGiftCardTitle());
-	assertEquals("check giftCardDescription",giftCardDescription, coachGCObj.getGiftCardDescription());	
-	assertEquals("check giftCardText",giftCard, coachGCObj.getGiftCardText());
+	    assertEquals("check GiftcardTitle",GiftcardTitle, coachGCObj.getGiftCardTitle());
+	   assertEquals("check giftCardDescription",giftCardDescription, coachGCObj.getGiftCardDescription());	
+	    assertEquals("check giftCardText",giftCard, coachGCObj.getGiftCardText());
 
 			
 	    int	cursor=1;
@@ -55,30 +57,27 @@ class TestCoach {
 
 		String Balance=coachGCObj.getGiftCardBalance();
 
- 	    System.out.println("Balance is "+Balance);
+ 	    System.out.println(Balance);
 		
 		coachGCObj.closePopWindow();
 
  	    cursor++;
 
 	}
-	
 	}
+	
+	
+	  
 	
 	   @Test(priority=1)
 	   public void TestCoachCheckOut() throws InterruptedException{
 		   
 		   int	cursor=1;
-		   int flag=1;
+		  
 		   while(cursor<efObj.getNoOfRowsOfCreditCardFile()-2){
 
-		   
-		   
 		   coachCheckOutObject.clickOnSale();
-		   if(flag==1){
-		   coachCheckOutObject.closePopWindow();
-		   flag=0;
-		   }
+		
 		   coachCheckOutObject.clickOnSelectedBag();
 		   coachCheckOutObject.clickonSelectSizeButton();
 		   coachCheckOutObject.setSize();
@@ -89,6 +88,7 @@ class TestCoach {
 		   coachCheckOutObject.setLastName();
 		   coachCheckOutObject.setAdress();
 		   coachCheckOutObject.setZipCode();
+	
 		   coachCheckOutObject.setPhoneNumber();
 		   coachCheckOutObject.clickOnContinue();
 		   
@@ -106,5 +106,6 @@ class TestCoach {
 			   }
 	
 	   }
+	
 	
 }
